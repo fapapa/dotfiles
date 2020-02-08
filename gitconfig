@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[core]
+	editor = emacsclient -nc
+	excludesfile = /Users/fabiopapa/.gitignore_global
+	autocrlf = input
+[user]
+	name = Fabio Papa
+	email = fabtheman@gmail.com
+[merge]
+	tool = ediff
+	ff = no
+[mergetool "ediff"]
+	cmd = emacsclient -c -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[color]
+	ui = auto
+[github]
+	user = fapapa
+	oauth-token = e665909c6239e168b3792c0234c97c5466e2d149
