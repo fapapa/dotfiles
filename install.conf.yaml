@@ -3,9 +3,12 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
-        path: ssh/config
-        create: true
+      path: ssh/config
+      create: true
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-
-
+    ~/.emacs.d/lisp/init-local.el:
+      path: emacs.d/lisp/init-local.el
+    ~/.emacs.d/snippets:
+      path: emacs.d/snippets
+      create: true

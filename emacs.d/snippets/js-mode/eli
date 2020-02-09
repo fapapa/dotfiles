@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Fabio Papa <me@fabiopapa.dev>
+# name: else if
+# key: eli
+# --
+else if (${1:condition}) {
+  $0
+}

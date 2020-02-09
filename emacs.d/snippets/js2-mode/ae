@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Fabio Papa <me@fabiopapa.dev>
+# name: assert.equal
+# key: ae
+# group: JS Chai
+# --
+
+assert.equal(${1:actual}, ${2:expected}${3:, \"${4:[message]}\"});$0
