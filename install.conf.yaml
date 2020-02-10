@@ -14,3 +14,6 @@
       path: emacs.d/snippets
       create: true
     ~/.p10k.zsh: p10k.zsh
+    ~/.hammerspoon:
+      path: hammerspoon
+      create: true
