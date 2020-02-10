@@ -13,3 +13,4 @@
     ~/.emacs.d/snippets:
       path: emacs.d/snippets
       create: true
+    ~/.p10k.zsh: p10k.zsh
