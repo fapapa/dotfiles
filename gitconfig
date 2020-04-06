@@ -6,6 +6,7 @@
 [user]
 	name = Fabio Papa
 	email = fabtheman@gmail.com
+	signingkey = ${GPG_SIGNATURE}
 [merge]
 	tool = ediff
 	ff = no
