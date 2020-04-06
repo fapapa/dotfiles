@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.gitconfig: gitconfig
@@ -8,11 +8,6 @@
       create: true
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-    ~/.emacs.d/lisp/init-local.el:
-      path: emacs.d/lisp/init-local.el
-    ~/.emacs.d/snippets:
-      path: emacs.d/snippets
-      create: true
     ~/.p10k.zsh: p10k.zsh
     ~/.hammerspoon:
       path: hammerspoon

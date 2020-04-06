@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Frozen String Magic Comment
-# key: #f
-# --
-# frozen_string_literal: true
