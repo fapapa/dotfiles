@@ -107,6 +107,8 @@ export NVM_DIR="$HOME/.nvm"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ke="emacsclient -e '(kill-emacs)'"
 alias jks="be jekyll serve --host=0.0.0.0"
+alias ec="emacsclient -nc"
+alias et="emacsclient -t"
 
 # https://unix.stackexchange.com/questions/1136/batch-renaming-files
 # Use as follows:
