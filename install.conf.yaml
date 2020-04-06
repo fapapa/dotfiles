@@ -12,3 +12,6 @@
     ~/.hammerspoon:
       path: hammerspoon
       create: true
+    ~/.doom.d:
+      path: doom.d/
+      create: true
