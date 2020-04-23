@@ -69,7 +69,8 @@
        :emacs
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ibuffer           ; interactive buffer management
+       (ibuffer          ; interactive buffer management
+        +icons)
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
