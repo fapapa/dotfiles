@@ -66,7 +66,7 @@ With negative ARG, search backwards for occurence of region"
 (map! "C-S-j" 'emmet-wrap-with-markup)
 
 (setq projectile-project-search-path
-      '("~/dev/" "~/dev/lighthouse" "~/dev/the_little_elixir_and_otp_guidebook"))
+      '("~/dev/" "~/dev/lighthouse"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
