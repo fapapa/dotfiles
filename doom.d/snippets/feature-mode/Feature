@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Feature
+# uuid: fea
+# key: fea
+# condition: t   
+# --
+Feature: ${1:Name}
+  As a${2: role}
+  I want ${3:feature}
+  So that ${4:benefit}
+
+  sce$0

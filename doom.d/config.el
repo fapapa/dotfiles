@@ -68,6 +68,14 @@ With negative ARG, search backwards for occurence of region"
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
 
+;; Cucumber feature files
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+;; Enable file template for *.feature files
+;; Stored in .doom.d/snippets/feature-mode/__
+(setq +file-templates-alist
+  (cons '(feature-mode) +file-templates-alist))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

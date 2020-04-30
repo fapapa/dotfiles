@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Scenario
+# uuid: sce
+# key: sce
+# condition: t
+# --
+Scenario: ${1:Title}
+  Given ${2:context}
+  When ${3:interaction}
+  Then ${4:result}
+
+  $0

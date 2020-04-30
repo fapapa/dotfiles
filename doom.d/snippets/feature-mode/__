@@ -1,0 +1,11 @@
+Feature: ${1:Name}
+  ${2:As a ${3:role}
+  I want ${4:feature}
+  So that ${5:benefit}
+}
+  Scenario: ${6:Title}
+    Given ${7:context}
+    When ${8:interaction}
+    Then ${9:result}
+
+    $0
