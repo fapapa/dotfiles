@@ -15,3 +15,6 @@
     ~/.doom.d:
       path: doom.d/
       create: true
+    ~/Library/KeyBindings/DefaultKeyBinding.dict:
+      path: DefaultKeyBinding.dict
+      create: true
