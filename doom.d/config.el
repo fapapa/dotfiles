@@ -44,7 +44,7 @@
 
 (map! "M-m" 'mc/mark-all-like-this-dwim)
 
-(defun fabio/mark-symbol-or-mark-next-like-this (arg)
+(defun +fabio/mark-symbol-or-mark-next-like-this (arg)
   "To mimmick Cmd-d behavior in modern editors. With no region, marks
 word/symbol at point
 With region marks next occurence of region
@@ -57,7 +57,7 @@ With negative ARG, search backwards for occurence of region"
         (mc/mark-next-like-this arg))
     (er/mark-symbol))
   (mc/maybe-multiple-cursors-mode))
-(map! "s-d" 'fabio/mark-symbol-or-mark-next-like-this)
+(map! "s-d" '+fabio/mark-symbol-or-mark-next-like-this)
 
 (setq-hook! 'js2-mode-hook
   js2-basic-offset 2)
