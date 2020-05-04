@@ -77,7 +77,7 @@ With negative ARG, search backwards for occurence of region"
   (cons '(feature-mode) +file-templates-alist))
 
 ;; Load customize variables
-(load-file "~/.doom.d/custom.el")
+(load! "custom")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

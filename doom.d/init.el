@@ -97,7 +97,8 @@
         ;; +docsets)        ; ...or in Dash docsets locally
        ;;lsp
        macos             ; MacOS-specific commands
-       magit             ; a git porcelain for Emacs
+       (magit             ; a git porcelain for Emacs
+        +forge)
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
