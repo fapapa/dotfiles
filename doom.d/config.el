@@ -68,6 +68,10 @@ With negative ARG, search backwards for occurence of region"
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
 
+(use-package! projectile-rails
+  :init
+  (setq projectile-rails-custom-server-command nil))
+
 ;; Cucumber feature files
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
