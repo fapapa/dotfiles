@@ -42,21 +42,20 @@
 (map! "C-z" nil)
 (setq doom-localleader-alt-key "C-z")
 
+;;;;;;;;;;;;;;;;;;;;;;
+;; Multiple Cursors ;;
+;;;;;;;;;;;;;;;;;;;;;;
+(setq mc/list-file (doom-path "etc/mc-lists.el"))
 (map! "M-m" 'mc/mark-all-like-this-dwim)
-
 (defun +fabio/mark-symbol-or-mark-next-like-this (arg)
   "To mimmick Cmd-d behavior in modern editors. With no region, marks
 word/symbol at point
 With region marks next occurence of region
-With zero ARG, skip the last one and mark next
-With negative ARG, search backwards for occurence of region"
+With zero ARG, skip the last one and mark next"
   (interactive "p")
   (if (region-active-p)
-      (if (< arg 0)
-          (mc/mark-previous-like-this 1)
-        (mc/mark-next-like-this arg))
-    (er/mark-symbol))
-  (mc/maybe-multiple-cursors-mode))
+      (mc/mark-next-like-this arg)
+    (er/mark-symbol)))
 (map! "s-d" '+fabio/mark-symbol-or-mark-next-like-this)
 
 (setq-hook! 'js2-mode-hook
