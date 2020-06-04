@@ -7,7 +7,7 @@ export EDITOR='emacsclient -t'
 export ALTERNATE_EDITOR=''
 export VISUAL='emacsclient -c'
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:/Library/TeX/texbin:$PATH"
 
 # Load rbenv
 eval "$(rbenv init -)"
