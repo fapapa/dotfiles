@@ -62,9 +62,6 @@ With negative ARG, search backwards for occurence of region"
 (setq-hook! 'js2-mode-hook
   js2-basic-offset 2)
 
-(map! "C-j" 'emmet-expand-line)
-(map! "C-S-j" 'emmet-wrap-with-markup)
-
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
 
