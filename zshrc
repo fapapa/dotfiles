@@ -148,3 +148,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#268bd2"
 # and never be upgraded. This may interfere with installing old versions of ruby
 # (<2.4)
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export PATH="/usr/local/sbin:$PATH"
