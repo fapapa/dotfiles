@@ -52,3 +52,7 @@
 
 (package! move-text)
 (package! feature-mode)
+
+;; YAML mode
+(package! yaml-mode
+  :recipe (:host github :repo "yoshiki/yaml-mode"))
