@@ -78,6 +78,18 @@
 
 (setq rbenv-installation-dir "/usr/local")
 
+;; email
+(setq +mu4e-backend 'offlineimap
+      mu4e-update-interval 300)
+(set-email-account! "Animikii"
+                    '((mu4e-sent-folder   . "/[Gmail].Sent Mail")
+                      (mu4e-drafts-folder . "/[Gmail].Drafts")
+                      (mu4e-trash-folder  . "/[Gmail].Trash")
+                      (mu4e-refile-folder . "/[Gmail].All Mail")
+                      (smtpmail-smtp-user . "fabio.papa@animikii.com")
+                      (mu4e-compose-signature . "*Fabio Papa*\n\n*Software Developer*\n\n*Animikii Inc.*\n\n(877) 589-2899 x114\n\nwww.animikii.com\n\n/I live and work on the traditional territories of the Coast Salish peoples–Sḵwx̱wú7mesh (Squamish), Stó:lō and Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh) and xʷməθkʷəy̓əm (Musqueam) Nations. (Vancouver, BC). Animikii headquarters are on the traditional territory of the Lək̓ʷəŋən (Lkwungen, Songhees and Esquimalt) Peoples of the Coast Salish Nation (Victoria, BC)./"))
+                    t)
+
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
 (setq-hook! 'js-mode-hook
