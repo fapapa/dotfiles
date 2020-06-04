@@ -5,7 +5,7 @@
 	autocrlf = input
 [user]
 	name = Fabio Papa
-	email = fabtheman@gmail.com
+	email = fabio.papa@animikii.com
 	signingkey = ${GPG_SIGNATURE}
 [merge]
 	tool = ediff
