@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+# Load rbenv
+eval "$(rbenv init -)"
 
 # Load nodenv
 eval "$(nodenv init -)"

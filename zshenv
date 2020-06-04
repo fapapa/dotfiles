@@ -9,6 +9,8 @@ export VISUAL='emacsclient -c'
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:$PATH"
 
+# Load rbenv
+eval "$(rbenv init -)"
 
 # Load nodenv
 eval "$(nodenv init -)"
