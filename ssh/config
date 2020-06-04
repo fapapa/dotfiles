@@ -2,3 +2,98 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+
+Host *.speedy.cloud
+  Port 22
+  RequestTTY yes
+
+# San'yas
+Host sanyas-legacy-production-app-1
+  HostName iccapp1.culturalcompetency.ca
+  User deploy
+
+Host sanyas-legacy-production-app-2
+  HostName iccapp2.culturalcompetency.ca
+  User deploy
+
+Host sanyas-legacy-production-jobs-1
+  HostName iccjobs1.culturalcompetency.ca
+  User deploy
+
+Host sanyas-assets
+  HostName assets.culturalcompetency.ca
+  User deploy
+
+Host sanyas-legacy-staging
+  HostName 66.199.144.73
+  User deploy
+
+Host sanyas-db
+  HostName 65.39.226.237
+  User deploy
+
+Host sanyas-next-production
+  Hostname os2epg0bzx9mf3.speedy.cloud
+  User dokku
+  RequestTTY yes
+
+Host sanyas-next-staging
+  HostName tzxwxdmajqznlb.speedy.cloud
+  User dokku
+  RequestTTY yes
+
+Host sanyas-next-pg
+  HostName hvdwwmrkhpmven.speedy.cloud
+  User deploy
+
+# YikeSite
+Host yikesite-production
+  HostName gbmgwzskixtccx.speedy.cloud
+  User dokku
+
+Host yikesite-production-db
+  HostName yikedb1.speedyrails.net
+  User deploy
+
+Host yikesite-production-jobs
+  HostName yikejobs1.speedyrails.net
+  User deploy
+
+# CANDO Connect
+Host cando-connect-production
+  HostName lwiylajxzjwqin.speedy.cloud
+  User dokku
+
+# Amik
+Host amik-production
+  HostName 65.39.154.131
+  User deploy
+
+# Metis Nation BC
+Host mnbc-production
+  HostName 65.39.138.47
+  User deploy
+
+# Aboriginal Apprenticeship Board Of Ontario
+Host aabo-production
+  HostName chddhxb4bnhn0p.speedy.cloud
+  User dokku
+
+# Aboriginal Head Start
+Host ahs-production
+  HostName doqlzlllcvsljl.speedy.cloud
+  User dokku
+
+Host ahs-staging
+  HostName ilkfwkdtqelaey.speedy.cloud
+  User dokku
+
+# Moose Hide Campaign Online Training
+Host mhcot-production
+  HostName sgjocoxlbcswor.speedy.cloud
+  User dokku
+
+# Primary Colours
+Host pc-production
+  HostName jzjgnipshnxzif.speedy.cloud
+  User dokku
