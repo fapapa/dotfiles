@@ -2,6 +2,8 @@ export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresq
 
 # Bring in config that is sensitive and should not be in source control
 . ~/.sensitive
+export ZSH="/Users/fabiopapa/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 
 export EDITOR='emacsclient -t'
 export ALTERNATE_EDITOR=''
