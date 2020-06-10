@@ -94,6 +94,10 @@ With zero ARG, skip the last one and mark next"
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . display-ansi-colors))
 
+;; Prettier formatter
+(require 'prettier-js)
+(add-hook! '(js2-mode-hook web-mode-hook) #'prettier-js-mode)
+
 ;; Load customize variables
 (load! "custom")
 
