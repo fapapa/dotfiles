@@ -76,6 +76,8 @@ With zero ARG, skip the last one and mark next"
 (setq +file-templates-alist
   (cons '(feature-mode) +file-templates-alist))
 
+(setq rbenv-installation-dir "/usr/local")
+
 ;; Load customize variables
 (load! "custom")
 
