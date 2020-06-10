@@ -78,6 +78,8 @@ With zero ARG, skip the last one and mark next"
 
 (setq rbenv-installation-dir "/usr/local")
 
+(setq! web-mode-markup-indent-offset 2)
+
 ;; Load customize variables
 (load! "custom")
 
