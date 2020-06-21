@@ -106,9 +106,6 @@ With zero ARG, skip the last one and mark next"
   (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam")
   :hook after-init)
 
-;; Load customize variables
-(load! "custom")
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
