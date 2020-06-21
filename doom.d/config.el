@@ -20,7 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 14))
-(setq doom-font (font-spec :name "Operator Mono" :size 14))
+(setq doom-font (font-spec :name "Operator Mono Light" :size 14))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -105,6 +105,9 @@ With zero ARG, skip the last one and mark next"
   :init
   (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam")
   :hook after-init)
+
+(set-default 'cursor-type  '(bar . 1))
+(blink-cursor-mode 1)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
