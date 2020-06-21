@@ -100,6 +100,12 @@ With zero ARG, skip the last one and mark next"
 
 (map! "C-:" 'avy-goto-char)
 
+;; Org-Roam
+(use-package! org-roam-mode
+  :init
+  (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam")
+  :hook after-init)
+
 ;; Load customize variables
 (load! "custom")
 
