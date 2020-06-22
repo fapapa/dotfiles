@@ -28,7 +28,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-challenger-deep)
+;; (setq doom-theme 'doom-challenger-deep)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -108,6 +108,8 @@ With zero ARG, skip the last one and mark next"
 
 (set-default 'cursor-type  '(bar . 1))
 (blink-cursor-mode 1)
+
+(load! "elegance")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

@@ -63,3 +63,5 @@
            :files ("prettier-js.el")))
 
 (package! org-roam)
+
+(package! doom-themes :ignore t)
