@@ -20,7 +20,8 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 14))
-(setq doom-font (font-spec :name "Operator Mono Light" :size 14))
+(setq doom-font (font-spec :name "Operator Mono Light" :size 14)
+      doom-unicode-font (font-spec :name "Fira Code Light" :size 14))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
