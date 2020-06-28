@@ -53,10 +53,6 @@
 (package! move-text)
 (package! feature-mode)
 
-;; YAML mode
-(package! yaml-mode
-  :recipe (:host github :repo "yoshiki/yaml-mode"))
-
 ;; Prettier formatter
 (package! prettier-emacs
   :recipe (:host github :repo "prettier/prettier-emacs"
