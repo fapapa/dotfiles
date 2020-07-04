@@ -90,7 +90,7 @@ With zero ARG, skip the last one and mark next"
 
 ;; Prettier formatter
 (require 'prettier-js)
-(add-hook! '(js2-mode-hook web-mode-hook) #'prettier-js-mode)
+(add-hook! 'js2-mode-hook #'prettier-js-mode)
 
 (map! "C-:" 'avy-goto-char)
 
