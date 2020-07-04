@@ -75,8 +75,8 @@
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       term              ; terminals in Emacs
-       ;;vterm             ; another terminals in Emacs
+       ;;term              ; terminals in Emacs
+       vterm             ; another terminals in Emacs
        ;;eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
 
