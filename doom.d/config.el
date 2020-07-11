@@ -105,11 +105,6 @@ With zero ARG, skip the last one and mark next"
 (require 'prettier-js)
 (add-hook! 'js2-mode-hook #'prettier-js-mode)
 
-(map! "C-:" 'avy-goto-char)
-
-(set-default 'cursor-type  '(bar . 1))
-(blink-cursor-mode 1)
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
