@@ -52,10 +52,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-;; Make C-z the doom local-leader alt key
-(map! "C-z" nil)
-(setq doom-localleader-alt-key "C-z")
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Multiple Cursors ;;
 ;;;;;;;;;;;;;;;;;;;;;;
