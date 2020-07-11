@@ -78,9 +78,19 @@ With zero ARG, skip the last one and mark next"
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
 
+;;;;;;;;;;;;;;;;;;
+;; Ruby & Rails ;;
+;;;;;;;;;;;;;;;;;;
 (use-package! projectile-rails
   :init
   (setq projectile-rails-custom-server-command nil))
+
+(require 'ansi-color)
+(defun display-ansi-colors ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-to-list 'auto-mode-alist '("\\.log\\'" . display-ansi-colors))
 
 ;; Cucumber feature files
 (require 'feature-mode)
@@ -94,13 +104,6 @@ With zero ARG, skip the last one and mark next"
 
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
-
-(require 'ansi-color)
-(defun display-ansi-colors ()
-  (interactive)
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region (point-min) (point-max))))
-(add-to-list 'auto-mode-alist '("\\.log\\'" . display-ansi-colors))
 
 ;; Prettier formatter
 (require 'prettier-js)
