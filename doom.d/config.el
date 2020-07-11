@@ -93,6 +93,7 @@ With zero ARG, skip the last one and mark next"
 (setq rbenv-installation-dir "/usr/local")
 
 (setq! web-mode-markup-indent-offset 2)
+(setq! web-mode-code-indent-offset 2)
 
 (require 'ansi-color)
 (defun display-ansi-colors ()
