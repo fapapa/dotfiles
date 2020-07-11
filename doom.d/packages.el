@@ -57,5 +57,3 @@
 (package! prettier-emacs
   :recipe (:host github :repo "prettier/prettier-emacs"
            :files ("prettier-js.el")))
-
-(package! org-roam)

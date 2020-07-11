@@ -31,9 +31,22 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
 
+;;;;;;;;;;;;;;;;;;;;;;;
+;; Org Configuration ;;
+;;;;;;;;;;;;;;;;;;;;;;;
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/org")
+(setq org-directory "~/Dropbox (Animikii)/Fabio/org/gtd/")
+(setq +org-capture-todo-file "inbox.org")
+(after! org
+  (setq org-capture-templates
+        '(("t" "Todo" entry
+           (file +org-capture-todo-file)
+           "* [ ] %?\n%i\n%a" :prepend t))))
+;; Org-Roam
+(use-package! org-roam
+  :init
+  (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -93,12 +106,6 @@ With zero ARG, skip the last one and mark next"
 (add-hook! 'js2-mode-hook #'prettier-js-mode)
 
 (map! "C-:" 'avy-goto-char)
-
-;; Org-Roam
-(use-package! org-roam-mode
-  :init
-  (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam")
-  :hook after-init)
 
 (set-default 'cursor-type  '(bar . 1))
 (blink-cursor-mode 1)
