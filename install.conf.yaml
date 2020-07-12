@@ -18,3 +18,6 @@
     ~/Library/KeyBindings/DefaultKeyBinding.dict:
       path: DefaultKeyBinding.dict
       create: true
+    ~/.config/karabiner:
+      path: karabiner/
+      create: true
