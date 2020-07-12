@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [core]
-	editor = emacsclient -nc
+	editor = emacsclient -c
 	excludesfile = /Users/fabiopapa/.gitignore_global
 	autocrlf = input
 [user]
