@@ -21,3 +21,6 @@
     ~/.config/karabiner:
       path: karabiner/
       create: true
+    ~/bin/launch-emacs.sh:
+      path: launch_emacs.sh
+      create: true
