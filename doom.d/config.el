@@ -40,9 +40,9 @@
 (setq +org-capture-todo-file "inbox.org")
 (after! org
   (setq org-capture-templates
-        '(("t" "Todo" entry
+        '(("c" "Collect to inbox" entry
            (file +org-capture-todo-file)
-           "* [ ] %?\n%i\n%a" :prepend t))))
+           "* [ ] %?\n%i\n%a" :prepend f))))
 ;; Org-Roam
 (use-package! org-roam
   :init
