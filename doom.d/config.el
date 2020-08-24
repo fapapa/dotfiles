@@ -44,6 +44,10 @@
         '(("c" "Collect to inbox" entry
            (file +org-capture-todo-file)
            "* [ ] %?\n%i\n%a" :prepend f))))
+(setq org-agenda-custom-commands
+      '(("c" "Next item to clarify" todo ""
+         ((org-agenda-max-entries 1)))))
+
 ;; Org-Roam
 (use-package! org-roam
   :init
