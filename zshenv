@@ -5,9 +5,9 @@ export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresq
 export ZSH="/Users/fabiopapa/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient -t "$@"'
 export ALTERNATE_EDITOR=''
-export VISUAL='emacsclient'
+export VISUAL='emacsclient -nc "$@"'
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:/Library/TeX/texbin:$PATH"
 
