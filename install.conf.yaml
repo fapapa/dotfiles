@@ -24,3 +24,6 @@
     ~/bin/launch-emacs.sh:
       path: launch_emacs.sh
       create: true
+    ~/bin/emacs_editor.sh:
+      path: emacs_editor.sh
+      create: true

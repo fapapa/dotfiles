@@ -5,7 +5,7 @@ export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresq
 export ZSH="/Users/fabiopapa/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='emacsclient -t "$@"'
+export EDITOR='emacsclient -a ~/bin/emacs_editor.sh'
 export ALTERNATE_EDITOR=''
 export VISUAL='emacsclient -nc "$@"'
 
