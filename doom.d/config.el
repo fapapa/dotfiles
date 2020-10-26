@@ -90,6 +90,17 @@
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
 
+;; Format with rubocop on save
+(setq! +format-on-save-enabled-modes
+       '(not emacs-lisp-mode
+             sql-mode
+             tex-mode
+             latex-mode
+             ruby-mode))
+(use-package! rubocopfmt
+  :hook
+  (ruby-mode . rubocopfmt-mode))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

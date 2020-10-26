@@ -50,3 +50,4 @@
 
 (package! move-text)
 (package! feature-mode)
+(package! rubocopfmt)
