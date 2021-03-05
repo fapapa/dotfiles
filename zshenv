@@ -1,9 +1,17 @@
+# Start configuration added by Zim install {{{
+#
+# User configuration sourced by all invocations of the shell
+#
+
+# Define Zim location
+: ${ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim}
+# }}} End configuration added by Zim install
+
 export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresql@10/bin:/usr/local/opt/node@10/bin:/usr/local/opt/sqlite/bin:$PATH
 
 # Bring in config that is sensitive and should not be in source control
 . ~/.sensitive
 export ZSH="/Users/fabiopapa/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 
 export EDITOR='emacsclient -a ~/bin/emacs_editor.sh'
 export ALTERNATE_EDITOR=''
