@@ -68,6 +68,9 @@
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . display-ansi-colors))
 
+(setq-hook! 'ruby-mode-hook
+  fill-column 120)
+
 ;; Cucumber feature files
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
