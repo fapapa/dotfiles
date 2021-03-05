@@ -101,6 +101,10 @@
   :hook
   (ruby-mode . rubocopfmt-mode))
 
+(map! (:when IS-MAC
+        "s-}" '+workspace/switch-right
+        "s-{" '+workspace/switch-left))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
