@@ -90,17 +90,6 @@
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
 
-;; Format with rubocop on save
-(setq! +format-on-save-enabled-modes
-       '(not emacs-lisp-mode
-             sql-mode
-             tex-mode
-             latex-mode
-             ruby-mode))
-(use-package! rubocopfmt
-  :hook
-  (ruby-mode . rubocopfmt-mode))
-
 (map! (:when IS-MAC
         "s-}" '+workspace/switch-right
         "s-{" '+workspace/switch-left))
@@ -128,6 +117,21 @@
                  ("\\section{%s}" . "\\section*{%s}")
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+(setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
+
+(after! format-all
+  (define-format-all-formatter standardrb
+    (:executable "standardrb")
+    (:install "gem install standard:'>=0.13.0'")
+    (:languages "Ruby")
+    (:format
+     (format-all--buffer-hard-ruby
+      "standard" '(0 1) nil nil
+      executable
+      "--fix"
+      "--stderr"
+      "--stdin" (or (buffer-file-name) (buffer-name))))))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
