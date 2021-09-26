@@ -121,6 +121,12 @@
          '(("Ruby" standardrb)
            ("JavaScript" prettier))))
 (setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-standard)
+
+(after! web-mode
+  (use-package! lsp-tailwindcss)
+  (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
+  (add-hook 'web-mode-local-vars-hook #'lsp!))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

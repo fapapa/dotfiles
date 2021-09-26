@@ -53,3 +53,5 @@
 (unpin! format-all)
 (package! flycheck-standardrb
   :recipe (:host github :repo "julianrubisch/flycheck-standardrb"))
+(package! lsp-tailwindcss
+  :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
