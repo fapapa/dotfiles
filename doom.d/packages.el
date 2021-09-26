@@ -50,4 +50,6 @@
 
 (package! move-text)
 (package! feature-mode)
-(package! rubocopfmt)
+(unpin! format-all)
+(package! flycheck-standardrb
+  :recipe (:host github :repo "julianrubisch/flycheck-standardrb"))

@@ -90,21 +90,6 @@
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
 
-;; Format with rubocop on save
-(setq! +format-on-save-enabled-modes
-       '(not emacs-lisp-mode
-             sql-mode
-             tex-mode
-             latex-mode
-             ruby-mode))
-(use-package! rubocopfmt
-  :hook
-  (ruby-mode . rubocopfmt-mode))
-
-(map! (:when IS-MAC
-        "s-}" '+workspace/switch-right
-        "s-{" '+workspace/switch-left))
-
 (with-eval-after-load "ox-latex"
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
   (add-to-list 'org-latex-classes
@@ -129,6 +114,13 @@
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
+(use-package! prog-mode
+  :hook (prog-mode . format-all-mode)
+  :config
+  (setq! format-all-formatters
+         '(("Ruby" standardrb)
+           ("JavaScript" prettier))))
+(setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-standard)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
