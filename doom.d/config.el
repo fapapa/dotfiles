@@ -127,6 +127,8 @@
   (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
   (add-hook 'web-mode-local-vars-hook #'lsp!))
 
+(setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
