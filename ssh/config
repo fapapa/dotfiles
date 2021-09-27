@@ -97,3 +97,21 @@ Host mhcot-production
 Host pc-production
   HostName jzjgnipshnxzif.speedy.cloud
   User dokku
+Host demo-niiwin-dev
+  ForwardAgent yes
+  HostName demo.niiwin.dev
+  IdentityFile ~/.ssh/niiwin/niiwin_dev_digital_ocean_rsa
+  Port 22
+  User deploy
+Host membership-niiwin-dev
+  ForwardAgent yes
+  HostName membership.niiwin.dev
+  IdentityFile ~/.ssh/niiwin/niiwin_dev_digital_ocean_rsa
+  Port 22
+  User deploy
+Host rc-niiwin-dev
+  ForwardAgent yes
+  HostName rc.niiwin.dev
+  IdentityFile ~/.ssh/niiwin/niiwin_dev_digital_ocean_rsa
+  Port 22
+  User deploy
