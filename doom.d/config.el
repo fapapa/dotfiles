@@ -52,7 +52,7 @@
          ((org-agenda-max-entries 1)))))
 
 (setq projectile-project-search-path
-      '("~/dev/" "~/dev/lighthouse"))
+      '("~/dev/"))
 
 ;;;;;;;;;;;;;;;;;;
 ;; Ruby & Rails ;;
