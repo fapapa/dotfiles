@@ -228,3 +228,5 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/sbin:$PATH"
 
 alias ec="emacsclient -nc"
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
