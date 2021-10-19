@@ -56,3 +56,5 @@
 (package! lsp-tailwindcss
   :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
 (package! ob-mermaid)
+(package! ob-sml
+  :recipe (:host github :repo "swannodette/ob-sml"))
