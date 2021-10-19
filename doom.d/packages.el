@@ -58,3 +58,4 @@
 (package! ob-mermaid)
 (package! ob-sml
   :recipe (:host github :repo "swannodette/ob-sml"))
+(package! xref :pin "a82f459b37b31546bf274388baf8aca79e9c30d9")
