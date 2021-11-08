@@ -25,7 +25,7 @@
       doom-unicode-font (font-spec :name "Fira Code Light"))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
-  '(font-lock-keyword-face :slant italic))
+  '(font-lock-string-face :slant italic))
 
 (map! (:when IS-MAC
         "s-}" '+workspace/switch-right
