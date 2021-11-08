@@ -22,7 +22,7 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 (setq doom-font (font-spec :name "-*-Operator Mono-semilight-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-      doom-unicode-font (font-spec :name "Fira Code Light" :size 12))
+      doom-unicode-font (font-spec :name "Fira Code Light"))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
