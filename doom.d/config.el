@@ -34,7 +34,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-moonlight)
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org Configuration ;;
@@ -93,6 +93,7 @@
 
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
+(setq! js-indent-level 2)
 
 (with-eval-after-load "ox-latex"
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
