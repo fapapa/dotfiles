@@ -120,7 +120,9 @@
 (setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-standard)
 
 (after! web-mode
-  (use-package! lsp-tailwindcss)
+  (use-package! lsp-tailwindcss
+    :init
+    (setq! lsp-tailwindcss-add-on-mode t))
   (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
   (add-hook 'web-mode-local-vars-hook #'lsp!))
 
