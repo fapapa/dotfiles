@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: inline-table-cell
+# uuid:
+# key: []
+# condition: t
+# --
+src_emacs-lisp[:var table=${1:table_name} :results raw]{(nth ${2:col} (nth ${3:row} table))}
