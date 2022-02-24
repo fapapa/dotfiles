@@ -53,11 +53,6 @@
       '(("c" "Next item to clarify" todo ""
          ((org-agenda-max-entries 1)))))
 
-;; Org-Roam
-(use-package! org-roam
-  :init
-  (setq org-roam-directory "~/Dropbox (Animikii)/Fabio/org/roam"))
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
