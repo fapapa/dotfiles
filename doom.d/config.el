@@ -53,10 +53,6 @@
       '(("c" "Next item to clarify" todo ""
          ((org-agenda-max-entries 1)))))
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
-
 (setq-hook! 'js2-mode-hook
   js2-basic-offset 2)
 
@@ -127,8 +123,6 @@
   (use-package! lsp-tailwindcss)
   (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
   (add-hook 'web-mode-local-vars-hook #'lsp!))
-
-(setq ob-mermaid-cli-path "/usr/local/bin/mmdc")
 
 ;; Programming Languages Course on Coursera
 (require 'ob-sml nil 'noerror)
