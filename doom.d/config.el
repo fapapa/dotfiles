@@ -129,6 +129,8 @@
 ;; Programming Languages Course on Coursera
 (require 'ob-sml nil 'noerror)
 
+(setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
