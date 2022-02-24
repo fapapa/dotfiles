@@ -230,3 +230,5 @@ export PATH="/usr/local/sbin:$PATH"
 alias ec="emacsclient -nc"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
