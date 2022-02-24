@@ -53,9 +53,6 @@
       '(("c" "Next item to clarify" todo ""
          ((org-agenda-max-entries 1)))))
 
-(setq-hook! 'js2-mode-hook
-  js2-basic-offset 2)
-
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
 
@@ -85,7 +82,10 @@
 
 (setq! web-mode-markup-indent-offset 2)
 (setq! web-mode-code-indent-offset 2)
-(setq! js-indent-level 2)
+(setq-hook! 'js-mode-hook
+  js-indent-level 2)
+(setq-hook! 'js2-mode-hook
+  js2-basic-offset 2)
 
 (with-eval-after-load "ox-latex"
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
