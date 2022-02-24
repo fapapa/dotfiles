@@ -85,7 +85,9 @@ Host ahs-production
   User dokku
 
 Host ahs-staging
+  ForwardAgent yes
   HostName ilkfwkdtqelaey.speedy.cloud
+  IdentityFile ~/.ssh/ahslovit/stg_ahs_id_rsa
   User dokku
 
 # Moose Hide Campaign Online Training
@@ -97,6 +99,8 @@ Host mhcot-production
 Host pc-production
   HostName jzjgnipshnxzif.speedy.cloud
   User dokku
+
+# Niiwin
 Host demo-niiwin-dev
   ForwardAgent yes
   HostName demo.niiwin.dev
