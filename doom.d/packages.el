@@ -60,3 +60,5 @@
 ;; Programming Languages Course on Coursera
 (package! ob-sml
   :recipe (:host github :repo "swannodette/ob-sml"))
+(package! pulsing-cursor
+  :recipe (:host github :repo "jasonjckn/pulsing-cursor"))

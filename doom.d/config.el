@@ -129,6 +129,9 @@
 
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
+(use-package pulsing-cursor
+  :config (pulsing-cursor-mode +1))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
