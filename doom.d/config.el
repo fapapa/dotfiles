@@ -122,11 +122,9 @@
   (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
   (add-hook 'web-mode-local-vars-hook #'lsp!))
 
-;; Programming Languages Course on Coursera
-(require 'ob-sml nil 'noerror)
-
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
+(setq epg-pinentry-mode 'loopback)
 (pinentry-start)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
