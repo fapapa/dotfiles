@@ -1,0 +1,33 @@
+# key: prt
+# name: pull_request
+# condition: t
+# --
+# ${1:TICKET}: ${2:Description}
+
+## [$1](https://springhealth.atlassian.net/browse/$1)
+
+## What's this PR do? 🧐
+
+$0
+
+## How should this be manually tested? 🤓
+
+
+
+## Any background context you want to provide? 🤗
+
+
+
+## Pre-Assignment Checklist 🤔
+
+- [ ] I have reviewed my own pr for mistakes and commented for context if needed.
+- [ ] I have written clear manual testing steps for my reviewers.
+- [ ] I have run through those testing steps myself.
+- [ ] I have written specs/coverage where required AND all checks/specs are green.
+- [ ] The title of this PR contains the ticket number.
+- [ ] I have cleaned up redundant template boilerplate from this PR
+    description(i.e. This Checklist).
+
+## Compliance 😎
+- [ ] Make sure the changes are not exposing any type of PII/PHI data, including in the server logs
+- [ ] Changes are compatible with Spring Internal ([see Confluence for further info](https://springhealth.atlassian.net/wiki/spaces/ENG/pages/133365864/Spring+Internal))
