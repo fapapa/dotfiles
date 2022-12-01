@@ -60,8 +60,6 @@
 ;; Programming Languages Course on Coursera
 (package! ob-sml
   :recipe (:host github :repo "swannodette/ob-sml"))
-(package! pulsing-cursor
-  :recipe (:host github :repo "jasonjckn/pulsing-cursor"))
 
 ;; Prompt for gpg passphrase (when signing git commits, etc.)
 (package! pinentry)
@@ -72,3 +70,7 @@
   :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("shell-maker.el")))
 (package! chatgpt-shell
   :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("*.el")))
+
+(package! eslintd-fix)
+
+(package! graphql-mode)

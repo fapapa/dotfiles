@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Fabio Papa"
-      user-mail-address "fabtheman@gmail.com")
+      user-mail-address "fpapa@springhealth.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -51,7 +51,7 @@
          ((org-agenda-max-entries 1)))))
 
 (setq projectile-project-search-path
-      '("~/dev/" "~/dev/lighthouse"))
+      '("~/dev/" "~/SpringCare/"))
 
 ;;;;;;;;;;;;;;;;;;
 ;; Ruby & Rails ;;
@@ -112,9 +112,8 @@
   :hook (prog-mode . format-all-mode)
   :config
   (setq! format-all-formatters
-         '(("Ruby" standardrb)
-           ("JavaScript" prettier))))
-(setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-standard)
+         '(("Ruby" rubocop))))
+(setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-rubocop)
 
 (after! web-mode
   (use-package! lsp-tailwindcss
@@ -161,6 +160,8 @@
 (after! org
   (require 'ob-chatgpt-shell)
   (require 'ob-dall-e-shell))
+
+(add-hook 'js2-mode-hook 'eslintd-fix-mode)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
