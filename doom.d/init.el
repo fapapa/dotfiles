@@ -135,7 +135,7 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
-       ;;(graphql +lsp)    ; Give queries a REST
+       graphql    ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
@@ -155,9 +155,8 @@
        (org               ; organize your plain life in plain text
         +dragndrop
         +pandoc
-        +present
-        +roam2)
-       ;;php               ; perl's insecure younger brother
+        +present)
+       php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;graphviz          ; diagrams for confusing yourself even more
        ;;purescript        ; javascript, but functional
