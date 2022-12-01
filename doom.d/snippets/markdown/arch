@@ -1,0 +1,42 @@
+# -*- mode: snippet -*-
+# name: arch
+# uuid:
+# key: arch
+# condition: t
+# --
+# Initial Arch Meeting for ${1:ticket}: ${2:Ticket Name}
+
+#### Attendees
+
+* ${3:List the developers in attendance}
+
+#### Agenda
+
+${4:Add a rough description of what the arch meeting will be about}
+
+## Questions
+
+${5:Make a list of questions you would like to specifically have answered. This section encourages the
+developer who called the meeting to come with a prepared list of questions which usually decreases the overall
+length of the meeting significantly.}
+
+## Discussion Points
+
+Take notes during the meeting and make sure and write down topics discussed and any specific reasoning behind
+said decisions.
+
+## Next Steps
+
+This section should be filled out towards the end of the meeting to distill the discussion into action items
+and can be cleaned up after the conclusion of the meeting
+
+Things like splitting up the work into smaller tasks or separate PRs, special actions need to make it all work
+(LaunchDarkly flags),
+
+example:
+- Create migration PR and get that approved/merged first
+- Create code changes PR to add the needed methods to the model, specs, factories, etc.
+- Create launch darkly flag call <name-goes-here>
+- Find answers to question X & Y that require input from Product/DataScience/whatever
+
+## Finally, once the notes have been cleaned up and organized. Please post this entire file as a comment or in the description of the Jira ticket.

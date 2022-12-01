@@ -194,12 +194,6 @@ COMPLETION_WAITING_DOTS="true"
 #   export EDITOR='mvim'
 # fi
 
-# Load rbenv
-eval "$(rbenv init -)"
-
-# Load nodenv
-eval "$(nodenv init -)"
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -220,8 +214,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#268bd2"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/sbin:$PATH"
 
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-alias ec='emacsclient --no-wait --create-frame --quiet --suppress-output -a "" --eval '\''(select-frame-set-input-focus (selected-frame))'\'
+alias ec="emacsclient -nc"
+PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
@@ -233,19 +228,16 @@ bindkey -v
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 bindkey '^E' autosuggest-accept
+export SPRING_DIRECTORY=$HOME/SpringCare
+container-killall() { docker ps -aq | xargs docker stop | xargs docker rm ; }
+killport() { lsof -i tcp:$1 | awk 'NR!=1 {print $2}' | xargs kill ; }
+
 # Select a docker container to start and attach to
 function da() {
   local cid
   cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 
   [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
-}
-# Select a running docker container to enter
-function de() {
-  local cid
-  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
-
-  [ -n "$cid" ] && echo 'docker exec -it "$cid" bash' && docker exec -it "$cid" bash
 }
 # Select a running docker container to stop
 function ds() {
@@ -262,12 +254,7 @@ function drm() {
   [ -n "$cid" ] && docker rm "$cid"
 }
 
-function k() {
-  local cid
-  cid=$(ps aux | sed 1d | fzf -q "$1" | awk '{print $2}')
-
-  [ -n "$cid" ] && kill "$cid"
-}
+export GPG_TTY=$(tty)
 
 export DISABLE_SPRING=true
 
