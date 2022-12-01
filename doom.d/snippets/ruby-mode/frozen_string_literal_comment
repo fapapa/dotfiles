@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: frozen_string_literal_comment
+# uuid:
+# key: fsl
+# condition: t
+# --
+# frozen_string_literal: true

@@ -12,9 +12,9 @@ export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresq
 # Bring in config that is sensitive and should not be in source control
 . ~/.sensitive
 
-export EDITOR='emacsclient -a ~/bin/emacs_editor.sh'
+export EDITOR='emacsclient --tty'
 export ALTERNATE_EDITOR=''
-export VISUAL='emacsclient -nc "$@"'
+export VISUAL='emacsclient -tty "$@"'
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:/Library/TeX/texbin:$PATH"
 export PATH="$PATH:/usr/local/smlnj/bin"

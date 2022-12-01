@@ -18,9 +18,6 @@ setopt HIST_IGNORE_ALL_DUPS
 # Input/output
 #
 
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -v
-
 # Prompt for spelling correction of commands.
 #setopt CORRECT
 
@@ -67,15 +64,6 @@ WORDCHARS=${WORDCHARS//[\/]}
 #zstyle ':zim:termtitle' format '%1~'
 
 #
-# zsh-autosuggestions
-#
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-bindkey '^E' autosuggest-accept
-
-#
 # zsh-syntax-highlighting
 #
 
@@ -87,6 +75,12 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
 #typeset -A ZSH_HIGHLIGHT_STYLES
 #ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
 
 # ------------------
 # Initialize modules
@@ -119,12 +113,14 @@ fi
 
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
 SPACESHIP_VI_MODE_SHOW=true
-eval spaceship_vi_mode_enable
+spaceship add --before char vi_mode
 
 # Set a defuault username so that the username/hostname doesn't appear in the
 # prompt
@@ -229,4 +225,40 @@ export PATH="/usr/local/sbin:$PATH"
 
 alias ec="emacsclient -nc"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -v
+
+#
+# zsh-autosuggestions
+#
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+bindkey '^E' autosuggest-accept
+
+# Select a docker container to start and attach to
+function da() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+# Select a running docker container to stop
+function ds() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
+# Select a docker container to remove
+function drm() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker rm "$cid"
+}
+
+export GPG_TTY=$(tty)
 

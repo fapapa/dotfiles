@@ -19,8 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Operator Mono" :size 12 :weight 'semilight)
-      doom-big-font (font-spec :family "Operator Mono" :size 30 :weight 'semilight))
+(setq doom-font (font-spec :family "Operator Mono" :size 12 :weight 'semilight))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-string-face :slant italic)
@@ -40,7 +39,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Dropbox (Animikii)/Fabio/org/gtd/")
 (setq +org-capture-todo-file "inbox.org")
 (after! org
   (setq org-capture-templates
@@ -129,8 +127,7 @@
 
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
-(use-package pulsing-cursor
-  :config (pulsing-cursor-mode +1))
+(pinentry-start)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

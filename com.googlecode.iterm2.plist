@@ -741,7 +741,7 @@
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Show Timestamps</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color</key>
@@ -2193,7 +2193,7 @@
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Show Timestamps</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color</key>
