@@ -5,7 +5,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>CheckTestRelease</key>
-	<true/>
+	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>D7ED407A-61CB-42E9-8C99-7EB32D2F1E9B</string>
 	<key>HapticFeedbackForEsc</key>
