@@ -65,3 +65,10 @@
 
 ;; Prompt for gpg passphrase (when signing git commits, etc.)
 (package! pinentry)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
+(package! openai
+  :recipe (:host github :repo "emacs-openai/openai" :files ("dist" "*.el")))
+(package! chatgpt
+  :recipe (:host github :repo "emacs-openai/chatgpt" :files ("dist" "*.el")))
