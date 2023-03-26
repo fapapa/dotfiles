@@ -63,6 +63,11 @@
 
 ;; Prompt for gpg passphrase (when signing git commits, etc.)
 (package! pinentry)
+
+(package! eslintd-fix)
+
+(package! graphql-mode)
+
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 

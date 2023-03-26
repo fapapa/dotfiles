@@ -127,6 +127,8 @@
 (setq epg-pinentry-mode 'loopback)
 (pinentry-start)
 
+(add-hook 'js2-mode-hook 'eslintd-fix-mode)
+
 ;; accept completion from copilot and fall back to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
