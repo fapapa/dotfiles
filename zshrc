@@ -255,15 +255,12 @@ function drm() {
   [ -n "$cid" ] && docker rm "$cid"
 }
 
-export GPG_TTY=$(tty)
-
 export DISABLE_SPRING=true
 
 GPG_TTY=$(tty)
 export GPG_TTY
-export PATH="/usr/local/opt/curl/bin:$PATH"
 
-export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
+[[ ! -f $SPRING_DIRECTORY/spring-cli/init.sh ]] || source $SPRING_DIRECTORY/spring-cli/init.sh
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh-custom.toml)"
