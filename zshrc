@@ -257,9 +257,15 @@ function drm() {
   [ -n "$cid" ] && docker rm "$cid"
 }
 
-export GPG_TTY=$(tty)
-
 export DISABLE_SPRING=true
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+[[ ! -f $SPRING_DIRECTORY/spring-cli/init.sh ]] || source $SPRING_DIRECTORY/spring-cli/init.sh
+
+#Find and Trust that dope Netskope CA brah!
+export REQUESTS_CA_BUNDLE="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
+export NODE_EXTRA_CA_CERTS="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
+export AWS_CA_BUNDLE="/opt/homebrew/etc/ca-certificates/cert.pem"
+export PIP_CERT="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
