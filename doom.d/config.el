@@ -19,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Operator Mono" :size 12 :weight 'semilight))
+(setq doom-font "Operator Mono-12:weight=semilight")
+(setq doom-big-font "Operator Mono-28:weight=semilight")
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-string-face :slant italic)
