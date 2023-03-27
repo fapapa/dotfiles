@@ -19,3 +19,7 @@
 	oauth-token = e665909c6239e168b3792c0234c97c5466e2d149
 [init]
 	defaultBranch = main
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
