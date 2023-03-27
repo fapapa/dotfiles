@@ -120,7 +120,6 @@
   :config
   (setq! format-all-formatters
          '(("Ruby" rubocop))))
-(setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-rubocop)
 
 (after! web-mode
   (use-package! lsp-tailwindcss
