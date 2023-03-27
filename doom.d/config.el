@@ -137,7 +137,7 @@
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
 
-(setq openai-key "$OPENAI_API_KEY")
+(setq openai-key (getenv "OPENAI_API_KEY"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
