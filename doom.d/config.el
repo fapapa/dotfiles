@@ -35,6 +35,13 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-monokai-machine)
 
+;; Force emacs to use a specific version of node installed by nvm
+(setenv "PATH"
+        (concat (getenv "HOME") "/.nvm/versions/node/v18.14.2/bin:"
+                (getenv "PATH")))
+(setq exec-path
+      (append (list (concat (getenv "HOME") "/.nvm/versions/node/v18.14.2/bin")) exec-path))
+
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org Configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
