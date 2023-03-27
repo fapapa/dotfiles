@@ -227,3 +227,6 @@ alias ec="emacsclient -nc"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 export DISABLE_SPRING=true
+
+GPG_TTY=$(tty)
+export GPG_TTY
