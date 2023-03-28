@@ -27,6 +27,7 @@
     ~/bin/emacs_editor.sh:
       path: emacs_editor.sh
       create: true
+    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
 
 - tap:
     - d12frosted/emacs-plus
@@ -53,6 +54,7 @@
     - ripgrep
     - shellcheck
     - tidy-html5
+    - pinentry-mac
 
 - cask:
     - 1password
