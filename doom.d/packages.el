@@ -68,7 +68,7 @@
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 
-(package! openai
-  :recipe (:host github :repo "emacs-openai/openai" :files ("dist" "*.el")))
-(package! chatgpt
-  :recipe (:host github :repo "emacs-openai/chatgpt" :files ("dist" "*.el")))
+(package! shell-maker
+  :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("shell-maker.el")))
+(package! chatgpt-shell
+  :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("chatgpt-shell.el")))
