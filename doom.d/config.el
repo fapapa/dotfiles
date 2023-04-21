@@ -137,25 +137,24 @@
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
 
-(evil-define-operator fp/explain-code (beg end)
-  "Explain code using ChatGPT."
+(evil-define-operator fp/evil:explain-code (beg end)
+  "Make chatgpt-shell explain-code function into an evil operator."
   :move-point nil
-  (interactive "<r>")
-  (let ((code (buffer-substring-no-properties beg end)))
-    (deactivate-mark)
-    (goto-char end)
-    (set-mark (point))
-    (goto-char beg)
-    (activate-mark)
-    (chatgpt-shell-explain-code)))
+  (deactivate-mark)
+  (goto-char end)
+  (set-mark (point))
+  (goto-char beg)
+  (activate-mark)
+  (chatgpt-shell-explain-code))
 (use-package! chatgpt-shell
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
   :config
-  (map! :nv "g!" #'fp/explain-code
+  (map! :nv "g!" #'fp/evil:explain-code
         :leader
-        :desc "ChatGPT minibuffer prompt" "i g" #'chatgpt-shell-prompt
-        :desc "ChatGPT prompt" "i G" #'chatgpt-shell))
+        (:prefix ("!" . "AI")
+         :desc "ChatGPT minibuffer prompt" "g" #'chatgpt-shell-prompt
+         :desc "ChatGPT prompt" "G" #'chatgpt-shell)))
 (use-package! dall-e-shell
   :init
   (setq dall-e-shell-openai-key (getenv "OPENAI_API_KEY")))
