@@ -28,6 +28,7 @@
       path: emacs_editor.sh
       create: true
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
+    ~/.oh-my-posh-custom.toml: oh-my-posh-custom.toml
 
 - tap:
     - d12frosted/emacs-plus

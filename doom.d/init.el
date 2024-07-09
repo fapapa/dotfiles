@@ -97,7 +97,7 @@
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        lsp               ; M-x vscode
-       (magit +forge)             ; a git porcelain for Emacs
+       (magit)             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
@@ -135,6 +135,18 @@
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
+       <<<<<<< ours
+       <<<<<<< Updated upstream
+       ||||||| Stash base
+       (go +lsp)         ; the hipster dialect
+       =======
+       ;;(go +lsp)         ; the hipster dialect
+       >>>>>>> Stashed changes
+       ||||||| base
+       (go +lsp)         ; the hipster dialect
+       =======
+       ;;(go +lsp)         ; the hipster dialect
+       >>>>>>> theirs
        ;;(graphql +lsp)    ; Give queries a REST
        ;;(go +lsp)         ; the hipster dialect
        ;;(haskell +lsp)    ; a language that's lazier than I am
@@ -156,7 +168,8 @@
        (org               ; organize your plain life in plain text
         +dragndrop
         +pandoc
-        +present)
+        +present
+        +roam2)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

@@ -54,6 +54,7 @@
   :config
   (map! :map evil-org-mode-map
         :i "C-k" #'evil-insert-digraph))
+(setq org-roam-directory (file-truename "~/org-roam"))
 
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
@@ -92,7 +93,7 @@
 (with-eval-after-load "ox-latex"
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
   (add-to-list 'org-latex-classes
-               '("koma-article" "\\documentclass[letterpaper]{scrartcl}"
+               '("scrartcl" "\\documentclass[letterpaper]{scrartcl}"
                  ("\\section{%s}" . "\\section*{%s}")
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -161,6 +162,24 @@
   (setq chatgpt-shell-model-temperature 1.0)
   (setq chatgpt-shell-system-prompt 2)
   :config
+  (setq chatgpt-shell-system-prompts
+        (append
+         '(("Bible" . "You are a Bible-believing, reformed Bible scholar that specializes in explaining complex parts of the Bible in an approachable way. You often give illustrations and examples of what you are explaining.")
+           ("Manuscript Writer" . "You are a manuscript writer that specializes in converting regular prose into a document appropriate for giving a talk from. The formatting and spacing of the documents you create look like poetry. You put extra spacing between each main idea. You bold the first word of every main section. You use / to indicate pauses in speech. The greater the number of `/`s, the longer the pause. Where there exist parallel constructions with repeating words, you make those words bold. Here is an example of the type of document you create:
+
+```
+Today // it is an honor for me to stand here before you
+at the Freedom Banquet
+and pay tribute to a man
+
+        that in his lifetime
+                  has touched
+           and changed
+              uncountable lives across the globe
+```
+
+Your manuscripts are written as though they will be spoken. You chunk the prose into lines that are 5-7 words long. You write lists in a stair-step fashion."))
+         chatgpt-shell-system-prompts))
   (map! :nv "g!" #'fp/evil:explain-code
         :leader
         (:prefix ("!" . "AI")
@@ -191,6 +210,8 @@
 
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "en_US")
+(setq ispell-local-dictionary-alist
+      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
 
 (after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
                                                                          projectile-project-root-files-bottom-up)))
@@ -203,6 +224,10 @@
 (use-package! prettier-js
   :hook ((typescript-mode . prettier-js-mode)
          (js-mode . prettier-js-mode)))
+
+(setq ispell-local-dictionary "en_US")
+(setq ispell-local-dictionary-alist
+      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

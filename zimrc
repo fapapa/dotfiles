@@ -25,7 +25,7 @@ zmodule homebrew
 zmodule git-info
 # A customizable version of steeef's prompt theme.
 # zmodule steeef
-zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
+# zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions
@@ -44,4 +44,4 @@ zmodule zsh-users/zsh-history-substring-search
 zmodule https://github.com/agkozak/zsh-z
 # }}} End configuration added by Zim install
 
-zmodule spaceship-prompt/spaceship-vi-mode
+# zmodule spaceship-prompt/spaceship-vi-mode

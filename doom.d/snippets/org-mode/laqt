@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Latex Quotation with Attribution
+# uuid:
+# key: laqt
+# condition: t
+# --
+#+begin_quote
+\emph{${1:quote}} \\\\
+
+― ${2:attribution}
+#+end_quote

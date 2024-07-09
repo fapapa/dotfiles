@@ -119,8 +119,8 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
-SPACESHIP_VI_MODE_SHOW=true
-spaceship add --before char vi_mode
+# SPACESHIP_VI_MODE_SHOW=true
+# spaceship add --before char vi_mode
 
 # Set a defuault username so that the username/hostname doesn't appear in the
 # prompt
@@ -224,7 +224,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/sbin:$PATH"
 
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-alias ec="emacsclient --no-wait --create-frame --quiet --suppress-output -a ''"
+alias ec='emacsclient --no-wait --create-frame --quiet --suppress-output -a "" --eval '\''(select-frame-set-input-focus (selected-frame))'\'
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
@@ -276,3 +276,10 @@ export DISABLE_SPRING=true
 
 GPG_TTY=$(tty)
 export GPG_TTY
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh-custom.toml)"
+fi
