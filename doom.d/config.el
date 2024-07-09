@@ -20,7 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font "Operator Mono-12:weight=semilight")
-(setq doom-big-font "Operator Mono-28:weight=semilight")
+(setq doom-big-font "Operator Mono-22:weight=semilight")
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-string-face :slant italic)
@@ -49,6 +49,11 @@
 (setq org-agenda-custom-commands
       '(("c" "Next item to clarify" todo ""
          ((org-agenda-max-entries 1)))))
+;; let me use C-k to insert a digraph in org-mode
+(use-package! evil-org
+  :config
+  (map! :map evil-org-mode-map
+        :i "C-k" #'evil-insert-digraph))
 
 (setq projectile-project-search-path
       '("~/dev/" "~/dev/lighthouse"))
@@ -73,7 +78,7 @@
 ;; Enable file template for *.feature files
 ;; Stored in .doom.d/snippets/feature-mode/__
 (setq +file-templates-alist
-  (cons '(feature-mode) +file-templates-alist))
+      (cons '(feature-mode) +file-templates-alist))
 
 (setq rbenv-installation-dir "/usr/local")
 
@@ -124,19 +129,21 @@
   (add-hook 'web-mode-local-vars-hook #'lsp!))
 
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
-
-(setq epg-pinentry-mode 'loopback)
-(pinentry-start)
+(setq forge-topic-list-approves-fast-track-messages '(":sheep: it!"))
 
 ;; accept completion from copilot and fall back to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
+;; (use-package! copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :bind (("<backtab>" . 'copilot-accept-completion-by-word)
+;;          ("S-<tab>" . 'copilot-accept-completion-by-word)
+;;          ("s-<down>" . 'copilot-next-completion)
+;;          ("s-<up>" . 'copilot-previous-completion)
+;;          ("C-c a" . 'copilot-accept-completion)))
 
+;; (use-package chatgpt-shell
+;;   :ensure t
+;;   :custom
+;;   ((chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))))
 (evil-define-operator fp/evil:explain-code (beg end)
   "Make chatgpt-shell explain-code function into an evil operator."
   :move-point nil
@@ -147,20 +154,55 @@
   (activate-mark)
   (chatgpt-shell-explain-code))
 (use-package! chatgpt-shell
+  :defer t
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
+  (setq chatgpt-shell-model-version "gpt-4o")
+  (setq chatgpt-shell-model-temperature 1.0)
+  (setq chatgpt-shell-system-prompt 2)
   :config
   (map! :nv "g!" #'fp/evil:explain-code
         :leader
         (:prefix ("!" . "AI")
          :desc "ChatGPT minibuffer prompt" "g" #'chatgpt-shell-prompt
-         :desc "ChatGPT prompt" "G" #'chatgpt-shell)))
+         :desc "ChatGPT prompt" "G" #'chatgpt-shell)
+        :map shell-maker-map
+        :n "RET" #'+default/newline-below
+        :n "s-RET" #'shell-maker-return))
 (use-package! dall-e-shell
+  :defer t
   :init
   (setq dall-e-shell-openai-key (getenv "OPENAI_API_KEY")))
 (after! org
   (require 'ob-chatgpt-shell)
   (require 'ob-dall-e-shell))
+
+(use-package! org-ai
+  :after org
+  :commands (org-ai-mode org-ai-global-mode)
+  :hook (org-mode . org-ai-mode)
+  :config
+  (setq org-ai-openai-api-token (getenv "OPENAI_API_KEY"))
+  (setq org-ai-default-chat-model "gpt-4-turbo-preview")
+  (org-ai-global-mode)
+  (org-ai-install-yasnippets))
+
+(add-hook 'js2-mode-hook 'eslintd-fix-mode)
+
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "en_US")
+
+(after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
+                                                                         projectile-project-root-files-bottom-up)))
+
+(use-package! flycheck
+  :config
+  ;; Add Prettier to Flycheck for TypeScript
+  (flycheck-add-mode 'typescript-tslint 'typescript-mode))
+;; Use prettier-js to format on save
+(use-package! prettier-js
+  :hook ((typescript-mode . prettier-js-mode)
+         (js-mode . prettier-js-mode)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

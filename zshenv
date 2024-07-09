@@ -14,7 +14,7 @@ export PATH=$HOME/bin:$HOME/.emacs.d/bin:/usr/local/bin:/usr/local/opt/postgresq
 
 export EDITOR='emacsclient --tty'
 export ALTERNATE_EDITOR=''
-export VISUAL='emacsclient -tty "$@"'
+export VISUAL='emacsclient --tty'
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:/Library/TeX/texbin:$PATH"
 export PATH="$PATH:/usr/local/smlnj/bin"
