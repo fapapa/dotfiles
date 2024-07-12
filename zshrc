@@ -209,9 +209,6 @@ eval "$(nodenv init -)"
 # use 'LESS="$LESS+/^ *zmv *\\[" man zshcontrib' to get the manual
 autoload zmv
 
-export GOPATH=$HOME/go
-export PATH="$PATH:$GOPATH/bin"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#268bd2"
@@ -283,3 +280,5 @@ export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh-custom.toml)"
 fi
+
+eval "$(zoxide init zsh)"

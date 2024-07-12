@@ -10,11 +10,11 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
-    type = 'session'
+    type = 'shell'
     style = 'diamond'
     leading_diamond = ''
     trailing_diamond = ''
-    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
+    template = ' {{ .Name }} '
     background = 'p:yellow'
     foreground = 'p:black'
     Text = ''
@@ -121,12 +121,12 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 [transient_prompt]
   foreground = 'p:blue'
   background = 'transparent'
-  template = '〉 '
+  template = '🚀 '
 
 [secondary_prompt]
   foreground = 'p:blue'
   background = 'transparent'
-  template = '〉〉 '
+  template = ':: '
 
 [palette]
   black = '#262B44'
