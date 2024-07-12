@@ -29,6 +29,8 @@
       create: true
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
     ~/.oh-my-posh-custom.toml: oh-my-posh-custom.toml
+    ~/Library/Application Support/nushell/config.nu: config.nu
+    ~/Library/Application Support/nushell/env.nu: env.nu
 
 - tap:
     - d12frosted/emacs-plus
