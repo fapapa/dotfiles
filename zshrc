@@ -281,4 +281,5 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh-custom.toml)"
 fi
 
+export _ZO_ECHO=1 # Zoxide; print matched directory before navigating to it
 eval "$(zoxide init zsh)"
