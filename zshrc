@@ -269,7 +269,4 @@ fi
 export _ZO_ECHO=1 # Zoxide; print matched directory before navigating to it
 eval "$(zoxide init zsh)"
 
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-
-# Created by `pipx` on 2024-12-27 21:26:30
-export PATH="$PATH:/Users/fabiopapa/.local/bin"
+if [ -f ~/.env_vars ]; then source ~/.env_vars; fi
