@@ -267,3 +267,5 @@ fi
 
 export _ZO_ECHO=1 # Zoxide; print matched directory before navigating to it
 eval "$(zoxide init zsh)"
+
+if [ -f ~/.env_vars ]; then source ~/.env_vars; fi
