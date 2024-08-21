@@ -125,7 +125,11 @@
   :hook (prog-mode . format-all-mode)
   :config
   (setq! format-all-formatters
-         '(("Ruby" rubocop))))
+         '(("Ruby" rubocop)))
+  (setq! safe-local-variable-values
+         '((eval setq-local format-all-formatters
+            '(("Ruby" standardrb)))
+           (eval flycheck-select-checker 'ruby-standard))))
 
 (after! web-mode
   (use-package! lsp-tailwindcss
