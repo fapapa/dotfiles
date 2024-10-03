@@ -57,7 +57,8 @@
     - pinentry-mac
 
 - cask:
-    - aerospace
+    - 1password
+    - nikitabobko/tap/aerospace
     - docker
     - firefox
     - google-chrome

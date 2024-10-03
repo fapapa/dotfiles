@@ -6,7 +6,6 @@
 [user]
 	name = Fabio Papa
 	email = fabtheman@gmail.com
-	signingkey = 4B99DF05E569A226C5C1C65BFA77DAE0B74FB302
 [merge]
 	tool = ediff
 	conflictstyle = diff3
