@@ -193,3 +193,6 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;; This file is called from early-init.el, so we can use it to do things before any UI loads
+(push '(undecorated-round . t) default-frame-alist)

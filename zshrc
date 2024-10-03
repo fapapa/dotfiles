@@ -220,8 +220,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#268bd2"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 export PATH="/usr/local/sbin:$PATH"
 
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-alias ec='emacsclient --no-wait --create-frame --quiet --suppress-output -a "" --eval '\''(select-frame-set-input-focus (selected-frame))'\'
+alias ec="emacsclient -nc"
+alias et="emacsclient -t"
+PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
