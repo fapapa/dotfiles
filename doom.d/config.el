@@ -135,6 +135,7 @@
 (use-package! chatgpt-shell
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
+  (setq chatgpt-shell-system-prompt "Programming")
   :config
 
   (evil-define-operator fp/evil-chatgpt-compose (beg end)
