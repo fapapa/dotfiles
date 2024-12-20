@@ -181,28 +181,6 @@
 ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 ;; (setq forge-topic-list-approves-fast-track-messages '(":sheep: it!"))
 
-;; accept completion from copilot and fall back to company
-;; (use-package! copilot
-;;   :hook (prog-mode . copilot-mode)
-;;   :bind (("<backtab>" . 'copilot-accept-completion-by-word)
-;;          ("S-<tab>" . 'copilot-accept-completion-by-word)
-;;          ("s-<down>" . 'copilot-next-completion)
-;;          ("s-<up>" . 'copilot-previous-completion)
-;;          ("C-c a" . 'copilot-accept-completion)))
-
-;; (use-package chatgpt-shell
-;;   :ensure t
-;;   :custom
-;;   ((chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))))
-(evil-define-operator fp/evil:explain-code (beg end)
-  "Make chatgpt-shell explain-code function into an evil operator."
-  :move-point nil
-  (deactivate-mark)
-  (goto-char end)
-  (set-mark (point))
-  (goto-char beg)
-  (activate-mark)
-  (chatgpt-shell-explain-code))
 (use-package! chatgpt-shell
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
