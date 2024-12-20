@@ -132,81 +132,34 @@
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 (setq forge-topic-list-approves-fast-track-messages '(":sheep: it!"))
 
-;; accept completion from copilot and fall back to company
-;; (use-package! copilot
-;;   :hook (prog-mode . copilot-mode)
-;;   :bind (("<backtab>" . 'copilot-accept-completion-by-word)
-;;          ("S-<tab>" . 'copilot-accept-completion-by-word)
-;;          ("s-<down>" . 'copilot-next-completion)
-;;          ("s-<up>" . 'copilot-previous-completion)
-;;          ("C-c a" . 'copilot-accept-completion)))
-
-;; (use-package chatgpt-shell
-;;   :ensure t
-;;   :custom
-;;   ((chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))))
-(evil-define-operator fp/evil:explain-code (beg end)
-  "Make chatgpt-shell explain-code function into an evil operator."
-  :move-point nil
-  (deactivate-mark)
-  (goto-char end)
-  (set-mark (point))
-  (goto-char beg)
-  (activate-mark)
-  (chatgpt-shell-explain-code))
 (use-package! chatgpt-shell
-  :defer t
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
-  (setq chatgpt-shell-model-version "gpt-4o")
-  (setq chatgpt-shell-model-temperature 1.0)
-  (setq chatgpt-shell-system-prompt 2)
   :config
   (setq chatgpt-shell-system-prompts
         (append
          '(("Bible" . "You are a Bible-believing, reformed Bible scholar that specializes in explaining complex parts of the Bible in an approachable way. You often give illustrations and examples of what you are explaining.")
-           ("Manuscript Writer" . "You are a manuscript writer that specializes in converting regular prose into a document appropriate for giving a talk from. The formatting and spacing of the documents you create look like poetry. You put extra spacing between each main idea. You bold the first word of every main section. You use / to indicate pauses in speech. The greater the number of `/`s, the longer the pause. Where there exist parallel constructions with repeating words, you make those words bold. Here is an example of the type of document you create:
+           chatgpt-shell-system-prompts))
 
-```
-Today // it is an honor for me to stand here before you
-at the Freedom Banquet
-and pay tribute to a man
-
-        that in his lifetime
-                  has touched
-           and changed
-              uncountable lives across the globe
-```
-
-Your manuscripts are written as though they will be spoken. You chunk the prose into lines that are 5-7 words long. You write lists in a stair-step fashion."))
-         chatgpt-shell-system-prompts))
-  (map! :nv "g!" #'fp/evil:explain-code
-        :leader
-        (:prefix ("!" . "AI")
-         :desc "ChatGPT minibuffer prompt" "g" #'chatgpt-shell-prompt
-         :desc "ChatGPT prompt" "G" #'chatgpt-shell)
-        :map shell-maker-map
-        :n "RET" #'+default/newline-below
-        :n "s-RET" #'shell-maker-return))
-(use-package! dall-e-shell
-  :defer t
-  :init
-  (setq dall-e-shell-openai-key (getenv "OPENAI_API_KEY")))
-(after! org
-  (require 'ob-chatgpt-shell)
-  (require 'ob-dall-e-shell))
-
-(use-package! org-ai
-  :after org
-  :commands (org-ai-mode org-ai-global-mode)
-  :hook (org-mode . org-ai-mode)
-  :config
-  (setq org-ai-openai-api-token (getenv "OPENAI_API_KEY"))
-  (setq org-ai-default-chat-model "gpt-4-turbo-preview")
-  (org-ai-global-mode)
-  (org-ai-install-yasnippets))
-
-(add-hook 'js2-mode-hook 'eslintd-fix-mode)
+        (evil-define-operator fp/evil-chatgpt-compose (beg end)
+          :move-point nil
+          (deactivate-mark)
+          (goto-char end)
+          (set-mark (point))
+          (goto-char beg)
+          (activate-mark)
+          (chatgpt-shell-prompt-compose nil))
+        (map! :n "g!" #'fp/evil-chatgpt-compose
+              :n "g!!" #'chatgpt-shell-prompt-compose)
+        (map! :leader
+              (:prefix ("!" . "AI")
+               :desc "Open ChatGPT Shell" "G" #'chatgpt-shell
+               :desc "ChatGPT prompt in the mini-buffer" "g" #'chatgpt-shell-prompt))
+        (after! evil
+          (add-hook 'chatgpt-shell-prompt-compose-mode-hook
+                    (lambda ()
+                      (evil-local-set-key 'normal "r" #'chatgpt-shell-prompt-compose-reply)
+                      (evil-local-set-key 'normal "q" #'chatgpt-shell-prompt-compose-quit-and-close-frame))))))
 
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "en_US")
@@ -224,10 +177,6 @@ Your manuscripts are written as though they will be spoken. You chunk the prose 
 (use-package! prettier-js
   :hook ((typescript-mode . prettier-js-mode)
          (js-mode . prettier-js-mode)))
-
-(setq ispell-local-dictionary "en_US")
-(setq ispell-local-dictionary-alist
-      '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

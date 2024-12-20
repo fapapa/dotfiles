@@ -68,13 +68,8 @@
 
 (package! graphql-mode)
 
-(when (package! shell-maker
-        :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("shell-maker.el")))
-  (package! chatgpt-shell
-    :recipe (:host github :repo "xenodium/chatgpt-shell" :files ("*.el"))))
-
-(package! org-ai
-  :recipe (:host github :repo "rksm/org-ai" :files ("*.el" "README.md" "snippets")))
+(package! chatgpt-shell
+  :recipe (:host github :repo "xenodium/chatgpt-shell"))
 
 (package! eslintd-fix)
 (package! prettier-js)
