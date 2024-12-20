@@ -136,10 +136,6 @@
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
   :config
-  (setq chatgpt-shell-system-prompts
-        (append
-         '(("Bible" . "You are a Bible-believing, reformed Bible scholar that specializes in explaining complex parts of the Bible in an approachable way. You often give illustrations and examples of what you are explaining.")
-           chatgpt-shell-system-prompts)))
 
   (evil-define-operator fp/evil-chatgpt-compose (beg end)
     :move-point nil
@@ -159,7 +155,22 @@
     (add-hook 'chatgpt-shell-prompt-compose-mode-hook
               (lambda ()
                 (evil-local-set-key 'normal "r" #'chatgpt-shell-prompt-compose-reply)
-                (evil-local-set-key 'normal "q" #'chatgpt-shell-prompt-compose-quit-and-close-frame)))))
+                (evil-local-set-key 'normal "q" #'chatgpt-shell-prompt-compose-quit-and-close-frame))))
+  (defun fp/chatgpt-shell-triple-backtick-handler ()
+    "Format triple backticks into a multi-line code block."
+    (when (and (derived-mode-p 'chatgpt-shell-mode)
+               (eq last-command-event ?`)
+               (save-excursion
+                 (goto-char (point))
+                 (looking-back "```" 3)))
+      (delete-char -3)
+      (insert "```\n\n``")
+      (forward-line -2)
+      (goto-char (line-beginning-position 2))))
+  (defun fp/chatgpt-shell-setup-triple-backticks ()
+    "Setup triple backtick handling for chatgpt-shell-mode."
+    (add-hook 'post-self-insert-hook #'fp/chatgpt-shell-triple-backtick-handler nil t))
+  (add-hook 'chatgpt-shell-mode-hook #'fp/chatgpt-shell-setup-triple-backticks))
 
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "en_US")
