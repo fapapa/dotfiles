@@ -73,3 +73,9 @@
 
 (package! eslintd-fix)
 (package! prettier-js)
+
+(package! emmet-mode)
+
+;; Pinned to solve "Symbol's function definition is void: transient-prefix-object"
+;; (package! transient :pin
+;;   "55d5d41b48d7f7bc1ecf1f90c012d7821dff5724")
