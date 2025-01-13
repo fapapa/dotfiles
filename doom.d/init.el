@@ -69,6 +69,7 @@
        :emacs
        (dired +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
+       ;;eww               ; the internet is gross
        (ibuffer +icons)         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
@@ -88,7 +89,7 @@
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        collab            ; buffers with friends
-       debugger          ; FIXME stepping through code, to help you add bugs
+       ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
@@ -99,7 +100,7 @@
        (magit)             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       pdf               ; pdf enhancements
+       ;;pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
@@ -107,12 +108,12 @@
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
-       tty               ; improve the terminal Emacs experience
        (:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
+       tty               ; improve the terminal Emacs experience
 
        :lang
        ;;agda              ; types of types of types of types...
-       beancount         ; mind the GAAP
+       ;;beancount         ; mind the GAAP
        ;;(cc +lsp)         ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -158,6 +159,7 @@
         +roam2)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
+       ;;graphviz          ; diagrams for confusing yourself even more
        ;;purescript        ; javascript, but functional
        ;;python            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
