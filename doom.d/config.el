@@ -73,14 +73,6 @@
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . display-ansi-colors))
 
-;; Cucumber feature files
-(require 'feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
-;; Enable file template for *.feature files
-;; Stored in .doom.d/snippets/feature-mode/__
-(setq +file-templates-alist
-      (cons '(feature-mode) +file-templates-alist))
-
 (setq rbenv-installation-dir "/usr/local")
 
 (setq! web-mode-markup-indent-offset 2)
