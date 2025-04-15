@@ -277,11 +277,14 @@ GPG_TTY=$(tty)
 export GPG_TTY
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
-export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
-
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.oh-my-posh-custom.toml)"
 fi
 
 export _ZO_ECHO=1 # Zoxide; print matched directory before navigating to it
 eval "$(zoxide init zsh)"
+
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+
+# Created by `pipx` on 2024-12-27 21:26:30
+export PATH="$PATH:/Users/fabiopapa/.local/bin"
