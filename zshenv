@@ -16,11 +16,12 @@ export EDITOR='emacsclient --tty'
 export ALTERNATE_EDITOR=''
 export VISUAL='emacsclient --tty'
 
+if [ -f /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
+if [ -f /usr/local/Homebrew/bin/brew ]; then eval "$(/usr/local/Homebrew/bin/brew shellenv)"; fi
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/qt@5.5/bin:/Library/TeX/texbin:$PATH"
 export PATH="$PATH:/usr/local/smlnj/bin"
 export PATH=$(brew --prefix grep)/libexec/gnubin:$PATH
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
 export PATH="$(brew --prefix)/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
