@@ -69,9 +69,7 @@
     - pinentry-mac
 
 - cask:
-    - 1password
     - nikitabobko/tap/aerospace
-    - docker
     - firefox
     - iterm2
     - karabiner-elements
