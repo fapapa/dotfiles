@@ -170,15 +170,28 @@
 (use-package! chatgpt-shell
   :init
   (setq chatgpt-shell-openai-key (getenv "OPENAI_API_KEY"))
+  (setq chatgpt-shell-anthropic-key (getenv "ANTHROPIC_API_KEY"))
   (setq chatgpt-shell-system-prompt "Programming")
   :config
   (setq chatgpt-shell-system-prompts
         (append
          '(("Bible" . "You are a Bible-believing, reformed Bible scholar that specializes in explaining complex parts of the Bible in an approachable way. You often give illustrations and examples of what you are explaining."))
          chatgpt-shell-system-prompts))
-  (:prefix ("!" . "AI")
-   :desc "Open ChatGPT Shell" "G" #'chatgpt-shell
-   :desc "ChatGPT prompt in the mini-buffer" "g" #'chatgpt-shell-prompt)
+  (evil-define-operator fp/evil-chatgpt-compose (beg end)
+    :move-point nil
+    (deactivate-mark)
+    (goto-char end)
+    (set-mark (point))
+    (goto-char beg)
+    (activate-mark)
+    (chatgpt-shell-prompt-compose nil))
+  (map! :n "g!" #'fp/evil-chatgpt-compose
+        :n "g!!" #'chatgpt-shell-prompt-compose)
+  (map! :leader
+        (:prefix ("!" . "AI")
+         :desc "Aidermacs Menu" "a" #'aidermacs-transient-menu
+         :desc "Open ChatGPT Shell" "G" #'chatgpt-shell
+         :desc "ChatGPT prompt in the mini-buffer" "g" #'chatgpt-shell-prompt))
   (after! evil
     (add-hook 'chatgpt-shell-prompt-compose-mode-hook
               (lambda ()
@@ -199,6 +212,14 @@
     "Setup triple backtick handling for chatgpt-shell-mode."
     (add-hook 'post-self-insert-hook #'fp/chatgpt-shell-triple-backtick-handler nil t))
   (add-hook 'chatgpt-shell-mode-hook #'fp/chatgpt-shell-setup-triple-backticks))
+
+;; Aider
+(use-package! aidermacs
+  :bind (("C-c a" . aidermacs-transient-menu))
+  :config
+  :custom
+  (aidermacs-use-architect-mode t)
+  (aidermacs-default-model "deepseek"))
 
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "en_US")

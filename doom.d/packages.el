@@ -75,6 +75,4 @@
 
 (package! emmet-mode)
 
-;; Pinned to solve "Symbol's function definition is void: transient-prefix-object"
-;; (package! transient :pin
-;;   "55d5d41b48d7f7bc1ecf1f90c012d7821dff5724")
+(package! aidermacs :recipe (:host github :repo "MatthewZMD/aidermacs" :files ("*.el")))
