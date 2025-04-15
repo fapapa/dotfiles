@@ -62,6 +62,13 @@
 ;;;;;;;;;;;;;;;;;;
 ;; Ruby & Rails ;;
 ;;;;;;;;;;;;;;;;;;
+(after! lsp-mode
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("ruby-lsp"))
+                    :major-modes '(ruby-mode)
+                    :priority 1
+                    :server-id 'ruby-lsp))
+  (setq lsp-clients-ruby-server-command '("ruby-lsp")))
 (use-package! projectile-rails
   :init
   (setq projectile-rails-custom-server-command nil))
@@ -185,8 +192,7 @@
     (goto-char beg)
     (activate-mark)
     (chatgpt-shell-prompt-compose nil))
-  (map! :n "g!" #'fp/evil-chatgpt-compose
-        :n "g!!" #'chatgpt-shell-prompt-compose)
+  (map! :n "g!" #'fp/evil-chatgpt-compose)
   (map! :leader
         (:prefix ("!" . "AI")
          :desc "Aidermacs Menu" "a" #'aidermacs-transient-menu
