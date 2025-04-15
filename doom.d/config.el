@@ -79,8 +79,14 @@
 (setq! web-mode-code-indent-offset 2)
 (setq-hook! 'js-mode-hook
   js-indent-level 2)
-(setq-hook! 'js2-mode-hook
-  js2-basic-offset 2)
+
+(after! js2-mode
+  (setq-hook! 'js2-mode-hook
+    flycheck-checker 'javascript-eslint ; use eslint for linting
+    +format-with-lsp nil
+    +format-with '(prettier))
+  (setq-hook! 'js2-mode-hook
+    js2-basic-offset 2))
 
 (with-eval-after-load "ox-latex"
   (setq org-latex-toc-command "\\tableofcontents \\clearpage")
@@ -106,23 +112,60 @@
                  ("\\subsection{%s}" . "\\subsection*{%s}")
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
 
-(use-package! prog-mode
-  :hook (prog-mode . format-all-mode)
-  :config
-  (setq! format-all-formatters
-         '(("Ruby" standardrb)
-           ("JavaScript" prettier))))
-(setq-hook! 'ruby-mode-hook flycheck-checker 'ruby-standard)
+;; Ensure necessary packages
+(after! ruby-mode
+  ;; Select checker and formatter conditionally
+  (defun fp/set-ruby-linter-and-formatter ()
+    "Use StandardRB when available, fallback to RuboCop."
+    (interactive)
+    (if (flycheck-checker-supports-major-mode-p 'ruby-standard 'ruby-mode)
+        (progn
+          (setq-local flycheck-checker 'ruby-standard)
+          (setq-local +format-with-lsp nil)
+          (setq-local +format-with '(ruby-standard)))
+      (progn
+        (setq-local flycheck-checker 'ruby-rubocop)
+        (setq-local +format-with-lsp nil)
+        (setq-local +format-with '(rubocop)))))
+
+  (add-hook 'ruby-mode-hook #'fp/set-ruby-linter-and-formatter))
+
+(after! apheleia
+  (setf (alist-get 'erb-format apheleia-formatters)
+        '("erb-format" "--stdin-filename" filepath))
+
+  (add-to-list 'apheleia-mode-alist '("\\.erb\\'" . erb-format)))
 
 (after! web-mode
+  (add-to-list 'lsp-language-id-configuration '(".*\\.erb\\'" . "html"))
+
   (use-package! lsp-tailwindcss
     :init
     (setq! lsp-tailwindcss-add-on-mode t))
-  (add-to-list 'lsp-language-id-configuration '(".*\\.erb$" . "html"))
-  (add-hook 'web-mode-local-vars-hook #'lsp!))
 
-(setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
-(setq forge-topic-list-approves-fast-track-messages '(":sheep: it!"))
+  (add-hook! 'web-mode-local-vars-hook
+    (lambda ()
+      ;; Set formatter based on extension
+      (let ((ext (file-name-extension (or buffer-file-name ""))))
+        (cond
+         ((string= ext "erb")
+          (setq-local web-mode-engines-alist '(("erb" . "\\.erb\\'")))
+          (setq-local +format-with 'erb-format)
+          (setq-local apheleia-formatter 'erb-format))
+         ((string= ext "html")
+          (setq-local +format-with 'prettier-html)
+          (setq-local apheleia-formatter 'prettier-html))))
+      (setq-local +format-with-lsp nil)
+      (lsp-deferred))))
+
+;; For CSS mode
+(add-hook! 'css-mode-hook
+  (lambda ()
+    (setq-local +format-with '(prettier-css))
+    (setq-local +format-with-lsp nil)))
+
+;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+;; (setq forge-topic-list-approves-fast-track-messages '(":sheep: it!"))
 
 (use-package! chatgpt-shell
   :init
@@ -164,15 +207,6 @@
 
 (after! projectile (setq projectile-project-root-files-bottom-up (remove ".git"
                                                                          projectile-project-root-files-bottom-up)))
-
-(use-package! flycheck
-  :config
-  ;; Add Prettier to Flycheck for TypeScript
-  (flycheck-add-mode 'typescript-tslint 'typescript-mode))
-;; Use prettier-js to format on save
-(use-package! prettier-js
-  :hook ((typescript-mode . prettier-js-mode)
-         (js-mode . prettier-js-mode)))
 
 (use-package! emmet-mode
   :hook ((html-mode css-mode web-mode) . emmet-mode)
