@@ -30,6 +30,11 @@
     ~/Library/Application Support/nushell/env.nu: env.nu
     ~/.aerospace.toml: aerospace.toml
 
+- tap:
+    - d12frosted/emacs-plus
+
+- brew: [emacs-plus@30 --with-xwidgets --with-imagemagick --with-savchenkovaleriy-big-sur-icon]
+
 - brew:
     - aspell
     - coreutils
