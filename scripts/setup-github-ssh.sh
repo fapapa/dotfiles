@@ -2,7 +2,7 @@
 
 set -e
 
-EMAIL="me@fabiopapa.dev"
+EMAIL="fpapa@springhealth.com"
 KEY_PATH="$HOME/.ssh/id_ed25519"
 
 if [[ -f "$KEY_PATH" ]]; then
@@ -12,7 +12,7 @@ else
   ssh-keygen -t ed25519 -C "$EMAIL" -f "$KEY_PATH" -N ""
   eval "$(ssh-agent -s)"
   ssh-add "$KEY_PATH"
-  pbcopy < "${KEY_PATH}.pub"
+  pbcopy <"${KEY_PATH}.pub"
   echo "✅ SSH key generated and copied to clipboard."
 
   echo
