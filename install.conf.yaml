@@ -66,6 +66,8 @@
     - shellcheck
     - tidy-html5
     - pinentry-mac
+    - oh-my-posh
+    - zoxide
 
 - cask:
     - 1password
