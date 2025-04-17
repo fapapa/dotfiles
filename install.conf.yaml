@@ -58,10 +58,8 @@
     - nikitabobko/tap/aerospace
     - docker
     - firefox
-    - google-chrome
     - iterm2
     - karabiner-elements
     - microsoft-edge
     - postman
-    - slack
-    - zoom
+    - raycast
